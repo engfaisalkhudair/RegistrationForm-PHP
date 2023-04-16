@@ -9,9 +9,10 @@ function RegisterValidation($name , $email , $password , $url , $phone){
         if (!preg_match("/^[a-zA-Z]{3,}+$/i" , $name)){
             $error['name'] = "please enter your name more than 3 character";
         }
-        if (!preg_match("/^[a-zA-Z0-9_]+@(gmail)\.$/i" , $email)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error['email'] = "please enter your email finished @gmail.com";
         }
+
         if (!filter_var($url , FILTER_VALIDATE_URL)) {
             $error['url'] = "please enter URL";
         }
