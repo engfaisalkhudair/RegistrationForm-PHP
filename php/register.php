@@ -13,15 +13,18 @@ if (isset($_POST['submitData'])) {
 
     $error = RegisterValidation($name , $email, $password , $url ,$phone);
     if(count($error) == 0 ){
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         $_SESSION['users'][$name] = array(
             "name" => $name,
             "email" => $email,
             "url" => $url,
             "phone" => $phone,
-            "password" => $password
+            "password" => $hashed_password
         );
         $printMessageStatus = "<div style='padding:20px 80px;background-color:green;border-radius:10px;margin:25px'>Sign Is Successfuly</div>";
-        header( "refresh:3;url=../index.php" );
+        header("Location: ../index.php");
+        exit;
     }
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_COOKIE["statusLogin"]) && time() > $_COOKIE["cookie_name"]) {
-    header( "refresh:0;url=../index.php" );
+    header("Location: ../index.php");
 }else{
     $name = $_SESSION['userName'];
     $password =  $_SESSION['users'][$name]['password'];
@@ -42,27 +42,27 @@ if(!isset($_COOKIE["statusLogin"]) && time() > $_COOKIE["cookie_name"]) {
             <h1>Personal Info</h1>
             <div class="marginTop">
             <h2>Full Name</h2>
-            <p><?= $name ?></p>
+            <p><?php echo $name; ?></p>
             </div>
 
             <div class="marginTop">
             <h2>Email</h2>
-            <p><?= $email ?></p>
+            <p><?php echo $email; ?></p>
             </div>
 
             <div class="marginTop">
             <h2>Phone</h2>
-            <p><?= $phone ?></p>
+            <p><?php echo $phone; ?></p>
             </div>
 
             <div class="marginTop">
             <h2>Url</h2>
-            <p><?= $url ?></p>
+            <p><?php echo $url; ?></p>
             </div>
 
             <div class="marginTop">
                 <h2>Password</h2>
-                <p><?= $password ?></p>
+                <p><?php echo $password; ?></p>
             </div>
 
         </div>
